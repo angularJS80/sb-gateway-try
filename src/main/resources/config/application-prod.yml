@@ -21,7 +21,8 @@ logging:
 
 eureka:
   instance:
-    prefer-ip-address: true
+    prefer-ip-address: false
+    hostname: ${jhipster.eureka.instance.hostname}
   client:
     service-url:
       defaultZone: http://admin:${jhipster.registry.password}@localhost:8761/eureka/
@@ -38,6 +39,22 @@ spring:
       enabled: false
     livereload:
       enabled: false
+  cloud:
+    stream:
+      kafka:
+        binder:
+          #          brokers: ${jhipster.cloud.stream.kafka.binder}
+          #          zk-nodes: ${jhipster.cloud.stream.kafka.zk-nodes}
+          brokers: ${jhipster.cloud.stream.kafka.binder.brokers}
+          zk-nodes: ${jhipster.cloud.stream.kafka.binder.zk-nodes}
+      bindings:
+        output:
+          destination: topic-jhipster
+        messageChannel:
+          destination: greetings
+          content-type: application/json
+        subscribableChannel:
+          destination: greetings
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
     url: jdbc:mysql://localhost:3306/gateway?useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC

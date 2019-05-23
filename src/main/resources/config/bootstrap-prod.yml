@@ -20,3 +20,12 @@ spring:
 jhipster:
   registry:
     password: admin
+  eureka:
+    instance:
+      hostname: localhost
+  cloud:
+    stream:
+      kafka:
+        binder:
+          brokers: localhost
+          zk-nodes: localhost

@@ -18,7 +18,7 @@
     "devDatabaseType": "mysql",
     "prodDatabaseType": "mysql",
     "searchEngine": false,
-    "messageBroker": false,
+    "messageBroker": "kafka",
     "serviceDiscoveryType": "eureka",
     "buildTool": "maven",
     "enableSwaggerCodegen": false,

@@ -120,6 +120,8 @@ To launch your application's tests, run:
 
     ./mvnw verify
 
+ㅁ
+
 ### Client tests
 
 Unit tests are run by [Jest][] and written with [Jasmine][]. They're located in [src/test/javascript/](src/test/javascript/) and can be run with:
@@ -170,6 +172,7 @@ You can also fully dockerize your application and all the services that it depen
 To achieve this, first build a docker image of your app by running:
 
     ./mvnw -Pprod verify jib:dockerBuild
+    ./mvnw -Pprod verify jib:dockerBuild -Djib.to.image=cho80.cho80.com/gateway:latest -Djib.to.auth.username=hellouser -Djib.to.auth.password=hellouser
 
 Then run:
 
